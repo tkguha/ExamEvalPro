@@ -1,0 +1,16 @@
+# from your local clone of your fork
+git checkout -b fix/score-parsing-and-export
+git apply /path/to/exam_eval_fixes.patch
+git add -A
+git commit -m "Fix: robust answer parsing, scoring, diagnostics; add tests and requirements"
+# create virtualenv and install deps
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+# source .venv/bin/activate
+pip install -r requirements.txt
+pytest -q
+# push branch and open PR
+git push origin fix/score-parsing-and-export
+# then open a Pull Request on GitHub from fix/score-parsing-and-export into main
